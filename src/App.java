@@ -31,7 +31,7 @@ public class App{
                         {
                             System.out.println("Correct..! You guess in in "+attempts+" attempts");
                             guessCorectly = true;
-                            totalScore +=(maxAttempts- attempts +1);
+                            totalScore +=(maxAttempts- attempts *1);
                             break;
                         }
                         else if(guess>NumberGenerate)
