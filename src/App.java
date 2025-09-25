@@ -16,22 +16,31 @@ public class App{
                 {
                     int NumberGenerate = random.nextInt(100)+1;
                     int attempts = 0;
-                    int maxAttempts = 10;
+                    int maxAttempts = 7;
                     boolean guessCorectly = false;
+                    int guess = 0;
                     
                     System.out.println("You have "+maxAttempts+" attempts To guess the Number...");
                     
                     while(attempts<maxAttempts)
                     {
                         System.out.println("Enter your guess: ");
-                        int guess = sc.nextInt();
+                        try{
+                        guess = sc.nextInt();
+                        }
+                        catch(Exception e)
+                        {
+                            System.out.println("Invalid Input, Please Enter a Number");
+                            sc.next();
+                            continue;
+                        }
                         attempts++;
                         
                         if(guess == NumberGenerate)
                         {
-                            System.out.println("Correct..! You guess in in "+attempts+" attempts");
+                            System.out.println("Correct..! You guess it in "+attempts+" attempts");
                             guessCorectly = true;
-                            totalScore +=(maxAttempts- attempts *1);
+                            totalScore +=(maxAttempts - attempts +5);
                             break;
                         }
                         else if(guess>NumberGenerate)
@@ -47,6 +56,7 @@ public class App{
                     {
                         System.out.println("!!! You Have Reached Maximum Attempts..");
                         System.out.println("The Number is "+NumberGenerate);
+                        totalScore = 0;
                     }
                     System.out.println("Your Score: "+totalScore);
                     
